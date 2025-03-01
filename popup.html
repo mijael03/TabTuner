@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Volume Control</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        width: 220px;
+        padding: 15px;
+        text-align: center;
+      }
+      h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+      input[type="range"] {
+        width: 100%;
+      }
+      .icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+      }
+      .tab-list {
+        margin-top: 10px;
+        text-align: left;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .tab-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+        transition: background 0.3s ease;
+      }
+      .tab-item.muted {
+        background: #f8d7da;
+      }
+      .mute-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: transform 0.2s ease;
+      }
+      .mute-button:active {
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Tab Volume Control</h2>
+    <p id="tab-info">Current Tab: Loading...</p>
+    <input
+      type="range"
+      id="volume-slider"
+      min="0"
+      max="1"
+      step="0.01"
+      value="1"
+    />
+    <div class="icons">
+      <span>🔈</span>
+      <span>🔊</span>
+    </div>
+    <h3>Active Tabs</h3>
+    <div class="tab-list" id="tab-list"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>
